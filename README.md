@@ -1,6 +1,6 @@
 # Custom Java Code Repository
 
-[![Java Logo](https://example.com/java_logo.png)](https://example.com)
+[![Java Logo](https://example.com/java_logo.png)]([https://example.com](https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png))
 
 Welcome to the **Custom Java Code Repository**! This repository hosts a diverse collection of Java code packages specifically designed to cater to various needs. Whether you're an Android app developer or looking to create visually appealing GUI applications for Windows, macOS, or Linux, you'll find an array of resources to support your projects.
 
