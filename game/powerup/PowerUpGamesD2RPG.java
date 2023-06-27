@@ -1,5 +1,6 @@
 package game.powerup;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -50,28 +51,24 @@ interface PopFunc extends PopUpGameFunc {
     }
 
     @Override
-    public void GetInput() { //get input for code;
-        try {
-
+    public void GetInput() throws InputMismatchException { //get input for code;
         if(CelChk[top]==true){
-        top++;
+            top++;
         }else{
 
             System.out.print( " Try= " + not + " Enter digit in cell " + top+" : ");
             userInp[top] = sc.nextInt();
             if(userInp[top]<0||userInp[top]>9){
                 System.out.println("Number should be bw 0 and 9");
-            }else{
+            }else if(sc.hasNextInt()!=true){
+                throw new InputMismatchException("Canot take string as input");
 
+            }else {
                 top++;
             }
-        }
-            System.out.println("");
-
-        } catch (Exception e) {
-            System.out.println("Error!! " + e.getMessage());
 
         }
+        System.out.println("");
     }
 
     @Override
@@ -152,7 +149,7 @@ class PowerUp extends UserInput implements PopUpGameFunc  {
     public PowerUp() {
         super();
     }
-public  void GetUserInput(){
+public  void GetUserInput() {
      while (not>0||isTrue==false){
        if(not==0){
            System.out.println("Game over!! you are out of trys!!");
@@ -174,7 +171,12 @@ public  void GetUserInput(){
                    }
 
                }else{
+               try {
                    GetInput();
+               }catch (Exception f){
+                   System.out.println("Input error!! "+f);
+                   break;
+               }
                }
 
        }
